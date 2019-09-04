@@ -1,0 +1,25 @@
+<form class="card" [formGroup]="form" (ngSubmit)="login()">
+    <h2>Authorization</h2>
+
+    <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+        {{ error }}
+    </div>
+
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
+            email
+        </div>
+    </div>
+    
+    <div class="form-control">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
+            password
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+</form>

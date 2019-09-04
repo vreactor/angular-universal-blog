@@ -1,0 +1,21 @@
+<nav class="navbar bg-primary">
+    <h1>
+        <a routerLink="/">Admin Panel</a>
+    </h1>
+
+    <ul *ngIf="authService.isAuth()">
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'create']">Create</a>
+        </li>
+        <li>
+            <a href="#" (click)="logout($event)">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

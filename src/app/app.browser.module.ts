@@ -8,6 +8,7 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { AppModule } from './app.module';
 import { AppComponent } from './components';
 import { InlineStyleModule } from './modules/inline-style/inline-style.module';
+import { InlineStyleComponent } from './modules/inline-style/inline-style.component';
 
 // the Request object only lives on the server
 export function getRequest(): any {
@@ -15,7 +16,7 @@ export function getRequest(): any {
 }
 
 @NgModule({
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent, InlineStyleComponent],
     imports: [
         AppModule,
         StateTransferInitializerModule,

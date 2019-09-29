@@ -5,6 +5,7 @@ import { CookieBackendService, CookieService } from 'ngx-cookie';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './components';
+import { InlineStyleComponent } from './modules/inline-style/inline-style.component';
 import { InlineStyleModule } from './modules/inline-style/inline-style.module';
 
 @NgModule({
@@ -16,7 +17,7 @@ import { InlineStyleModule } from './modules/inline-style/inline-style.module';
         // include style to inline style server render
         InlineStyleModule
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent, InlineStyleComponent],
     providers: [{ provide: CookieService, useClass: CookieBackendService }]
 })
 export class AppServerModule {}

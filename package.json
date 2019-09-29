@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:heroku": "node node server.js",
+    "start:heroku": "node server.js",
     "postinstall": "npm run build:universal",
     "ssr": "npm run build:universal && npm run generate:prerender && npm run server",
     "ssr:watch": "run-p ssr:universal:build:*",

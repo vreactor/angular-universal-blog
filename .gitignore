@@ -45,6 +45,8 @@ build/Release
 
 dist/
 
+dist-server/
+
 # Dependency directories
 node_modules/
 
@@ -65,3 +67,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+server.js
+
+prerender.js

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { QuillModule } from 'ngx-quill';
 
 import { AuthService, PostService } from './services';
@@ -15,4 +15,8 @@ import { AuthService, PostService } from './services';
         QuillModule
     ]
 })
-export class AppCommonModule { }
+export class AppCommonModule {
+    static forRoot(): ModuleWithProviders {
+        return { ngModule: AppCommonModule };
+    }
+}

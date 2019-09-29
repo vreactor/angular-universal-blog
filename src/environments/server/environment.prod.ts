@@ -1,6 +1,6 @@
 export const environment = {
-    production: false,
-    isServer: false,
+    production: true,
+    isServer: true,
     // for prerender
     host: 'http://localhost:4000',
     apiKey: 'AIzaSyBv4hR-WTjHWBWVUJS8zfnkNDqLpFDZfg0',

@@ -6,13 +6,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { PostPageComponent } from './post-page/post-page.component';
-import { PostComponent } from './post/post.component';
-import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
-import { AuthInterceptor } from './shared/interseptors/auth.interseptor';
-import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './components/app/app.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
+import { PostComponent } from './components/post/post.component';
+import { AppCommonModule } from './modules/app-common/app-common.module';
+import { AuthInterceptor } from './modules/app-common/interseptors';
+
 
 const INTERCEPTOR_AUTH: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -33,7 +34,7 @@ const INTERCEPTOR_AUTH: Provider = {
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
+    AppCommonModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [INTERCEPTOR_AUTH],

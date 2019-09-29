@@ -18,7 +18,8 @@
     "bundle-report": "ng build --stats-json && webpack-bundle-analyzer dist/stats.json",
     "bundle-report:prod": "ng build --stats-json --prod && webpack-bundle-analyzer dist/stats.json",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "npm run build:universal && gcloud app deploy"
   },
   "private": true,
   "dependencies": {

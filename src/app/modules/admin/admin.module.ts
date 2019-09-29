@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppCommonModule } from '../app-common/app-common.module';
-import { AdminRoutingModule } from './admin-routing.module';
+import { AdminRoutingModule } from './admin.routing';
 import { AdminCreateComponent } from './components/admin-create/admin-create.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';

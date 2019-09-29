@@ -7,6 +7,7 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './components';
+import { InlineStyleModule } from './modules/inline-style/inline-style.module';
 
 // the Request object only lives on the server
 export function getRequest(): any {
@@ -19,6 +20,8 @@ export function getRequest(): any {
         AppModule,
         StateTransferInitializerModule,
         BrowserTransferStateModule,
+        // include style to inline style server render
+        InlineStyleModule,
         ServiceWorkerModule.register('/ngsw-worker.js', { enabled: false })
     ],
     providers: [

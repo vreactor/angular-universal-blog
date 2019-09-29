@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieModule } from 'ngx-cookie';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './components/app/app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';

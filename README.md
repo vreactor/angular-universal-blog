@@ -11,6 +11,8 @@
     Example app with Angular 8 + Angular CLI + Angular Universal + Firebase
     <br>
     <br>
+    <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">DEMO-PAGE</a>
+    <br>
     <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Report bug</a>
     ·
     <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Request feature</a>

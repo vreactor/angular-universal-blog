@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:heroku": "node node server.js",
+    "postinstall": "npm run build:universal",
     "ssr": "npm run build:universal && npm run generate:prerender && npm run server",
     "ssr:watch": "run-p ssr:universal:build:*",
     "ssr:universal:build:browser": "ng run angular-blog:build:dev --watch",
@@ -18,8 +20,7 @@
     "bundle-report": "ng build --stats-json && webpack-bundle-analyzer dist/stats.json",
     "bundle-report:prod": "ng build --stats-json --prod && webpack-bundle-analyzer dist/stats.json",
     "test": "ng test",
-    "lint": "ng lint",
-    "deploy": "npm run build:universal && gcloud app deploy"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

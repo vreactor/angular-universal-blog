@@ -1,23 +1,33 @@
-# AngularBlog
+# Angular Universal Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+<p align="center">
+  <a href="https://angular.io/">
+    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo" width=72 height=72>
+  </a>
 
-## Development server
+  <h3 align="center">Angular Example App</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  <p align="center">
+    Example app with Angular 8 + Angular CLI + Angular Universal + Firebase
+    <br>
+    <br>
+    <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Report bug</a>
+    ·
+    <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Request feature</a>
+  </p>
+</p>
 
-## Code scaffolding
+## Quick Installation Instructions
+- Install npm packages `npm install`
+- Setup your firebase instance https://firebase.google.com/
+- Setup providers in Firebase Authentication (Email Address and Password)
+- Add a user in the Users tab
+- Use the firebase configuration information and plug it in src/environment
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## How to start
+- `npm run start` - for client rendering
+- `npm run ssr` - for server-side rendering
+- `npm run build:universal` - for assembly in release
+- `npm run server` - to start the server
+- `npm run build:prerender` - to generate static by `static.paths.ts`
+- `npm run ssr:watch`

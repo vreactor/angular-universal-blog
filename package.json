@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "ssr": "npm run build:universal && npm run generate:prerender && npm run server",
+    "ssr:watch": "run-p ssr:universal:build:*",
     "ssr:universal:build:browser": "ng run angular-blog:build:dev --watch",
     "ssr:universal:build:server": "node ./node_modules/npm-delay 15000 && ng run angular-blog:server:dev --watch",
     "build": "ng build",

@@ -38,4 +38,4 @@
 
 ## Demo page
 - <a href="https://angular-universal-blog.herokuapp.com">Blog</a>
-- <a href="https://angular-universal-blog.herokuapp.com/admin/login">Admin panel</a> (admin@angular.blog/123456)
+- <a href="https://angular-universal-blog.herokuapp.com/admin/login">Admin panel</a> (```admin@angular.blog/123456```)

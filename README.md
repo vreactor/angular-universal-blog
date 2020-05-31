@@ -14,6 +14,7 @@
     <a href="https://angular-universal-blog.herokuapp.com">BLOG</a>
     <br>
     <a href="https://angular-universal-blog.herokuapp.com/admin/login">LOGIN-PANEL</a>
+    <br>
     <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Report bug</a>
     ·
     <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Request feature</a>

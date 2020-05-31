@@ -35,3 +35,7 @@
 - `npm run server` - to start the server
 - `npm run build:prerender` - to generate static by `static.paths.ts`
 - `npm run ssr:watch`
+
+## Demo page
+- <a href="https://angular-universal-blog.herokuapp.com">Blog</a>
+- <a href="https://angular-universal-blog.herokuapp.com/admin/login">Admin panel</a> (admin@angular.blog/123456)

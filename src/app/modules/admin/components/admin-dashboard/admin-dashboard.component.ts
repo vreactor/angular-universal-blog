@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IPost } from 'app/modules/app-common/models/interfaces';
-import { PostService } from 'app/modules/app-common/services';
+import { IPost } from 'app/models';
+import { PostService } from 'app/services';
 
 @Component({
     selector: 'app-admin-dashboard',

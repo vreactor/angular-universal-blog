@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { IPost } from 'app/modules/app-common/models/interfaces';
+import { IPost } from 'app/models';
 
 @Component({
-    selector: 'app-post',
+    selector: 'post',
     templateUrl: './post.component.html'
 })
 export class PostComponent {

@@ -1,18 +1,18 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent, MainLayoutComponent, PostComponent } from './components';
+import { HomeLayoutComponent, PostComponent, PostsComponent } from './components';
 
-const COMPONENTS = [HomePageComponent, MainLayoutComponent, PostComponent];
+const COMPONENTS = [PostsComponent, HomeLayoutComponent, PostComponent];
 const ROUTES: Routes = [
     {
         path: '',
-        component: MainLayoutComponent,
+        component: HomeLayoutComponent,
         children: [
             { path: '', redirectTo: '/', pathMatch: 'full' },
             {
                 path: '',
-                component: HomePageComponent
+                component: PostsComponent
             },
             {
                 path: 'post/:id',
@@ -24,7 +24,6 @@ const ROUTES: Routes = [
 
 @NgModule({
     imports: [RouterModule.forChild(ROUTES), CommonModule],
-    declarations: [COMPONENTS],
-    providers: [DatePipe]
+    declarations: [COMPONENTS]
 })
 export class HomeModule {}

@@ -1,1 +1,1 @@
-export { LazyRoutePreloadingStrategy } from './lazy-route.preloading.strategy';
+export * from './lazy-route-preloading-strategy.provider';

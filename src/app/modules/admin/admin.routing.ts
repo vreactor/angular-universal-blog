@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AdminCreateComponent } from './components/admin-create/admin-create.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
+import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
-import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
-import { AuthGuard, LoginGuard } from './shared/guards';
+import { AuthGuard, LoginGuard } from './guards';
 
-const routes: Routes = [
+const ROUTES: Routes = [
     {
         path: '',
         component: AdminLayoutComponent,
@@ -23,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild(ROUTES)],
     exports: [RouterModule]
 })
 export class AdminRoutingModule {}

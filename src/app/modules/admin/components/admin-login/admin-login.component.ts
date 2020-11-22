@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IUser } from 'app/modules/app-common/models/interfaces';
-import { AuthService } from 'app/modules/app-common/services';
+import { IUser } from 'app/models';
+import { AuthService } from 'app/modules/shared';
 
 @Component({
     selector: 'app-admin-login',

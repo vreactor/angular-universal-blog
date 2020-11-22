@@ -1,1 +1,1 @@
-export * from './post-page/post-page.component';
+export * from './post-layout/post-layout.component';

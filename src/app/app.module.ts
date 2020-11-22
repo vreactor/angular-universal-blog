@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieModule } from 'ngx-cookie';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { AppCommonModule } from './modules/app-common/app-common.module';
-import { AuthInterceptor } from './modules/app-common/interseptors';
+import { AuthInterceptor } from './modules/shared/interseptors';
+import { SharedModule } from './modules/shared/shared.module';
 
 const INTERCEPTOR_AUTH: Provider = {
     provide: HTTP_INTERCEPTORS,
@@ -21,7 +21,7 @@ const INTERCEPTOR_AUTH: Provider = {
         BrowserModule.withServerTransition({ appId: 'my-app' }),
         BrowserAnimationsModule,
         HttpClientModule,
-        AppCommonModule.forRoot(),
+        SharedModule.forRoot(),
         CookieModule.forRoot(),
         AppRoutingModule
     ],

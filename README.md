@@ -8,7 +8,7 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 11 + Angular CLI + Angular Universal + Firebase
+    Example app with Angular 11 + Angular Universal + Firebase
     <br>
     <br>
     <a href="https://angular-universal-blog.herokuapp.com">BLOG</a>

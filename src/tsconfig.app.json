@@ -1,15 +1,22 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../tsconfig.base.json",
     "compilerOptions": {
-      "outDir": "../out-tsc/app",
-      "baseUrl": "./",
-      "module": "es2015",
-      "types": ["node"],
-      "typeRoots": [ "../node_modules/@types" ]
+        "outDir": "../out-tsc/app",
+        "baseUrl": "./",
+        "types": ["node"],
+        "typeRoots": [ "../node_modules/@types" ]
     },
+    "files": [
+        "main.browser.ts",
+        "polyfills.ts"
+    ],
     "exclude": [
-      "test.ts",
-      "**/*.spec.ts",
-      "node_modules"
+        "test.ts",
+        "**/*.spec.ts",
+        "node_modules"
+    ],
+    "include": [
+        "src/**/*.d.ts",
+        "src/**/*.ts"
     ]
 }

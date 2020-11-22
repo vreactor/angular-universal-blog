@@ -4,10 +4,7 @@ import { AuthService } from 'app/modules/app-common/services';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
-    constructor(
-        private authService: AuthService,
-        private router: Router
-    ) { }
+    constructor(private authService: AuthService, private router: Router) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (this.authService.isAuth()) {
             this.router.navigate(['/admin', 'dashboard']);

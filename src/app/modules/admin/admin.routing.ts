@@ -9,21 +9,21 @@ import { AdminLayoutComponent } from './shared/components/admin-layout/admin-lay
 import { AuthGuard, LoginGuard } from './shared/guards';
 
 const routes: Routes = [
-    { path: '', component: AdminLayoutComponent, children: [
-        { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
-        { path: 'login', component: AdminLoginComponent, canActivate: [ LoginGuard ] },
-        { path: 'dashboard', component: AdminDashboardComponent, canActivate: [ AuthGuard ] },
-        { path: 'create', component: AdminCreateComponent, canActivate: [ AuthGuard ] },
-        { path: 'edit/:id', component: AdminEditComponent, canActivate: [ AuthGuard ] }
-    ]}
+    {
+        path: '',
+        component: AdminLayoutComponent,
+        children: [
+            { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+            { path: 'login', component: AdminLoginComponent, canActivate: [LoginGuard] },
+            { path: 'dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+            { path: 'create', component: AdminCreateComponent, canActivate: [AuthGuard] },
+            { path: 'edit/:id', component: AdminEditComponent, canActivate: [AuthGuard] }
+        ]
+    }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes)
-     ],
-    exports: [
-        RouterModule
-     ]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

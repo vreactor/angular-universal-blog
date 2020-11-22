@@ -1,15 +1,11 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgModule, Provider } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_ID, Inject, NgModule, PLATFORM_ID, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieModule } from 'ngx-cookie';
-
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { AppComponent } from './components/app/app.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { PostPageComponent } from './components/post-page/post-page.component';
-import { PostComponent } from './components/post/post.component';
 import { AppCommonModule } from './modules/app-common/app-common.module';
 import { AuthInterceptor } from './modules/app-common/interseptors';
 
@@ -20,13 +16,7 @@ const INTERCEPTOR_AUTH: Provider = {
 };
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainLayoutComponent,
-        HomePageComponent,
-        PostPageComponent,
-        PostComponent
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({ appId: 'my-app' }),
         BrowserAnimationsModule,
@@ -35,9 +25,15 @@ const INTERCEPTOR_AUTH: Provider = {
         CookieModule.forRoot(),
         AppRoutingModule
     ],
-    providers: [
-        INTERCEPTOR_AUTH
-    ],
+    providers: [INTERCEPTOR_AUTH],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+    constructor(
+        @Inject(PLATFORM_ID) private platformId: object,
+        @Inject(APP_ID) private appId: string
+    ) {
+        const platform = isPlatformBrowser(platformId) ? 'in the browser' : 'on the server';
+        console.log(`Running ${platform} with appId=${appId}`);
+    }
+}

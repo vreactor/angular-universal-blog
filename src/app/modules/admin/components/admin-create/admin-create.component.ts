@@ -6,8 +6,7 @@ import { PostService } from 'app/modules/app-common/services';
 
 @Component({
     selector: 'app-admin-create',
-    templateUrl: './admin-create.component.html',
-    styleUrls: ['./admin-create.component.scss']
+    templateUrl: './admin-create.component.html'
 })
 export class AdminCreateComponent {
     form: FormGroup = new FormGroup({

@@ -1,4 +1,3 @@
-
 <div class="card">
     <div class="form-control">
         <label>Field</label>
@@ -9,7 +8,7 @@
     </div>
     <div class="form-control">
         <label>Filter</label>
-        <input type="text" [(ngModel)]="filter" [placeholder]="field">
+        <input type="text" [(ngModel)]="filter" [placeholder]="field" />
     </div>
 </div>
 
@@ -24,13 +23,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let post of posts | filterPost:filter:field; let idx = index">
+        <tr *ngFor="let post of posts | filterPost: filter:field; let idx = index">
             <td>{{ idx + 1 }}</td>
             <td>{{ post.author }}</td>
             <td>{{ post.title }}</td>
-            <td>{{ post.date | date:'MM.dd.yy, hh:mm' }}</td>
+            <td>{{ post.date | date: 'MM.dd.yy, hh:mm' }}</td>
             <td>
-                <button class="btn btn-success" [routerLink]="['/admin', 'edit', post.id]">Open</button>
+                <button class="btn btn-success" [routerLink]="['/admin', 'edit', post.id]">
+                    Open
+                </button>
                 <button class="btn btn-danger" (click)="remove(post.id)">Remove</button>
             </td>
         </tr>

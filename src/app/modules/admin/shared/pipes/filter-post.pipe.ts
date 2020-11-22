@@ -13,6 +13,8 @@ export class FilterPostPipe implements PipeTransform {
             return posts;
         }
 
-        return posts.filter((post: IPost) => post[field].toLowerCase().includes(search.trim().toLowerCase()));
+        return posts.filter((post: IPost) =>
+            post[field].toLowerCase().includes(search.trim().toLowerCase())
+        );
     }
 }

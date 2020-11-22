@@ -7,16 +7,19 @@
 
     <div class="form-control">
         <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email">
+        <input type="email" id="email" formControlName="email" />
         <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
             email
         </div>
     </div>
-    
+
     <div class="form-control">
         <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password">
-        <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
+        <input type="password" id="password" formControlName="password" />
+        <div
+            class="validation"
+            *ngIf="form.get('password').touched && form.get('password').invalid"
+        >
             password
         </div>
     </div>

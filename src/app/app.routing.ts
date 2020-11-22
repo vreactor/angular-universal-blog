@@ -1,28 +1,25 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-import { HomePageComponent, MainLayoutComponent, PostPageComponent } from './components';
+import { RouterModule, Routes } from '@angular/router';
+import { LazyRoutePreloadingStrategy } from './providers';
 
 const routes: Routes = [
     {
         path: '',
-        component: MainLayoutComponent,
-        children: [
-            { path: '', redirectTo: '/', pathMatch: 'full' },
-            { path: '', component: HomePageComponent },
-            { path: 'post/:id', component: PostPageComponent }
-        ]
+        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
     },
-    { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule' }
+    {
+        path: 'admin',
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+    }
 ];
-
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {
-            initialNavigation: 'enabled',
-            preloadingStrategy: PreloadAllModules
+            preloadingStrategy: LazyRoutePreloadingStrategy,
+            paramsInheritanceStrategy: 'always'
         })
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [LazyRoutePreloadingStrategy]
 })
 export class AppRoutingModule {}

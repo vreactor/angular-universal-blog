@@ -3,7 +3,7 @@
 
     <div class="form-control">
         <label for="title">Title</label>
-        <input type="text" id="title" formControlName="title">
+        <input type="text" id="title" formControlName="title" />
         <div class="validation" *ngIf="form.get('title').touched && form.get('title').invalid">
             title
         </div>

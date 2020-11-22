@@ -4,7 +4,6 @@ import { environment } from 'environments/environment';
 import { CookieService } from 'ngx-cookie';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
 import { IFbLogin } from '../models/interfaces/fb-login.interface';
 import { IUser } from '../models/interfaces/user.interface';
 
@@ -12,10 +11,7 @@ import { IUser } from '../models/interfaces/user.interface';
 export class AuthService {
     error$: Subject<string> = new Subject<string>();
 
-    constructor(
-        private http: HttpClient,
-        private cookieService: CookieService
-    ) { }
+    constructor(private http: HttpClient, private cookieService: CookieService) {}
 
     get token(): string {
         const expDate = new Date(this.cookieService.get('fb-token-exp'));
@@ -31,15 +27,13 @@ export class AuthService {
     login(user: IUser): Observable<any> {
         user.returnSecureToken = true;
 
-        return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword', user, {
-            params: {
-                key: environment.apiKey
-            }
-        })
-        .pipe(
-            tap(this.setToken.bind(this)),
-            catchError(this.handlerErrors.bind(this))
-        );
+        return this.http
+            .post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword', user, {
+                params: {
+                    key: environment.apiKey
+                }
+            })
+            .pipe(tap(this.setToken.bind(this)), catchError(this.handlerErrors.bind(this)));
     }
 
     logout() {
@@ -63,7 +57,7 @@ export class AuthService {
         this.cookieService.removeAll();
     }
 
-    handlerErrors(error) {
+    private handlerErrors(error) {
         const { message } = error.error.error;
 
         switch (message) {

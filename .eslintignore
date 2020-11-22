@@ -1,0 +1,9 @@
+dist
+node_modules
+coverage
+*.less
+*.css
+*.d.ts
+src/test.ts
+src/index.html
+.eslintrc.js

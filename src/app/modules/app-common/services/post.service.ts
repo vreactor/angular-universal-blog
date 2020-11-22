@@ -8,43 +8,38 @@ import { IFbPost, IPost } from '../models/interfaces';
 
 @Injectable()
 export class PostService {
-    constructor(
-        private http: HttpClient
-    ) {}
+    constructor(private http: HttpClient) {}
 
     create(post: IPost): Observable<IPost> {
-        return this.http.post(`${environment.databaseURL}/posts.json`, post)
-            .pipe(
-                map((res: IFbPost) => {
-                    const newPost: IPost = {
-                        ...post,
-                        id: res.name
-                    };
+        return this.http.post(`${environment.databaseURL}/posts.json`, post).pipe(
+            map((res: IFbPost) => {
+                const newPost: IPost = {
+                    ...post,
+                    id: res.name
+                };
 
-                    return newPost;
-                })
-            );
+                return newPost;
+            })
+        );
     }
 
     getAll(): Observable<IPost[]> {
-        return this.http.get<IPost[]>(`${environment.databaseURL}/posts.json`)
-            .pipe(
-                map((res: {[key: string]: any}) => {
-                    return Object.keys(res).map(key => {
-                        return {
-                            ...res[key],
-                            id: key
-                        };
-                    });
-                })
-            );
+        return this.http.get<IPost[]>(`${environment.databaseURL}/posts.json`).pipe(
+            map((res: { [key: string]: any }) => {
+                return Object.keys(res).map(key => {
+                    return {
+                        ...res[key],
+                        id: key
+                    };
+                });
+            })
+        );
     }
 
     getPost(id: string): Observable<IPost> {
-        return this.http.get<IPost>(`${environment.databaseURL}/posts/${id}.json`)
-            .pipe(
-                map((post: IPost) => ({ ...post, id }))
-            );
+        return this.http
+            .get<IPost>(`${environment.databaseURL}/posts/${id}.json`)
+            .pipe(map((post: IPost) => ({ ...post, id })));
     }
 
     remove(id: string): Observable<void> {

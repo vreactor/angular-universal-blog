@@ -7,8 +7,7 @@ import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-admin-edit',
-    templateUrl: './admin-edit.component.html',
-    styleUrls: ['./admin-edit.component.scss']
+    templateUrl: './admin-edit.component.html'
 })
 export class AdminEditComponent implements OnInit {
     post: IPost = undefined;
@@ -25,11 +24,7 @@ export class AdminEditComponent implements OnInit {
 
     ngOnInit() {
         this.route.params
-            .pipe(
-                switchMap((params: Params) =>
-                    this.postService.getPost(params.id)
-                )
-            )
+            .pipe(switchMap((params: Params) => this.postService.getPost(params.id)))
             .subscribe((post: IPost) => {
                 this.post = post;
                 this.form.setValue({

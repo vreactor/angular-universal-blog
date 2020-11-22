@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppCommonModule } from '../app-common/app-common.module';
 import { AdminRoutingModule } from './admin.routing';
 import { AdminCreateComponent } from './components/admin-create/admin-create.component';
@@ -21,17 +20,8 @@ import { FilterPostPipe } from './shared/pipes/filter-post.pipe';
         AdminLoginComponent,
         FilterPostPipe
     ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        AdminRoutingModule,
-        AppCommonModule
-     ],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, AdminRoutingModule, AppCommonModule],
     exports: [],
-    providers: [
-        AuthGuard,
-        LoginGuard
-    ]
+    providers: [AuthGuard, LoginGuard]
 })
-export class AdminModule { }
+export class AdminModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'app/modules/app-common/models/interfaces';
@@ -7,14 +7,11 @@ import { AuthService } from 'app/modules/app-common/services';
 @Component({
     selector: 'app-admin-login',
     templateUrl: './admin-login.component.html',
-    styleUrls: ['./admin-login.component.scss']
+    styleUrls: ['./admin-login.component.less']
 })
-export class AdminLoginComponent implements OnInit {
+export class AdminLoginComponent {
     form: FormGroup = new FormGroup({
-        email: new FormControl(undefined, [
-            Validators.required,
-            Validators.email
-        ]),
+        email: new FormControl(undefined, [Validators.required, Validators.email]),
         password: new FormControl(undefined, [
             Validators.required,
             Validators.minLength(6),
@@ -23,8 +20,6 @@ export class AdminLoginComponent implements OnInit {
     });
 
     constructor(public authService: AuthService, private router: Router) {}
-
-    ngOnInit() {}
 
     login() {
         if (this.form.invalid) {

@@ -12,7 +12,7 @@ const ROUTES: Routes = [
         path: '',
         component: AdminLayoutComponent,
         children: [
-            { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', component: AdminLoginComponent, canActivate: [LoginGuard] },
             { path: 'dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
             { path: 'create', component: AdminCreateComponent, canActivate: [AuthGuard] },

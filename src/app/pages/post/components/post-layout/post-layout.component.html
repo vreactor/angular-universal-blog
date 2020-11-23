@@ -1,0 +1,18 @@
+<article class="mblog-wrapper" *ngIf="post">
+    <div class="mblog-wrapper__header">
+        <h1>{{ post.title }}</h1>
+    </div>
+
+    <div class="mblog-wrapper__info">
+        <div class="mblog-author-info">
+            <img class="mblog-avatar" src="assets/icons/user.svg" />
+            <span class="mblog-author">{{ post.author }}</span>
+        </div>
+
+        <span class="mblog-date">{{ post.date | date: 'MM.dd.yy, hh:mm' }}</span>
+    </div>
+
+    <div class="mblog-wrapper__article">
+        <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
+</article>

@@ -1,0 +1,7 @@
+<div class="mblog-posts-header">
+    <h2 class="mblog-posts-header__subtitle">Posts</h2>
+</div>
+
+<div class="mblog-posts">
+    <post *ngFor="let post of post$ | async as posts" [post]="post"></post>
+</div>

@@ -3,7 +3,7 @@
 @import '~quill/dist/quill.snow.css';
 
 :root {
-    --primary-color: #dc3545;
+    --primary-color: #3b49df;
     --dark-color: #333;
     --dark-light-color: #8a8a8a;
     --light-color: #f4f4f4;
@@ -17,16 +17,43 @@
     padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    background-color: #fff;
+    background-color: #eef0f1;
     color: #333;
 }
 
-a {
-    color: var(--primary-color);
+.mblog-avatar {
+    width: 35px;
+}
+
+.mblog-author {
+    color: #4d5760;
+    font-size: 14px;
+}
+
+.mblog-date {
+    color: #64707d;
+    font-size: 14px;
+}
+
+.mblog-link {
+    color: var(--light-color);
     cursor: pointer;
     text-decoration: none;
 

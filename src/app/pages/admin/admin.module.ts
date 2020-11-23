@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from 'app/modules/shared';
 import { AdminRoutingModule } from './admin.routing';
 import { AdminCreateComponent } from './components/admin-create/admin-create.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';

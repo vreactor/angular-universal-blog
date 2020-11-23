@@ -1,0 +1,24 @@
+<nav class="navbar bg-primary">
+    <h1>
+        <a class="mblog-link" routerLink="/admin">Admin Panel</a>
+    </h1>
+
+    <ul *ngIf="authService.isAuth()">
+        <li routerLinkActive="active">
+            <a class="mblog-link" [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+        </li>
+        <li>
+            <a class="mblog-link" routerLink="">Blog</a>
+        </li>
+        <li routerLinkActive="active">
+            <a class="mblog-link" [routerLink]="['/admin', 'create']">Create</a>
+        </li>
+        <li>
+            <a class="mblog-link" href="#" (click)="logout($event)">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,15 @@
+<div class="mblog-post">
+    <div class="mblog-post__author">
+        <img class="mblog-avatar" src="assets/icons/user.svg" />
+
+        <div class="mblog-post-info">
+            <span class="mblog-author mblog-post-info__author">{{ post.author }}</span>
+            <span class="mblog-date mblog-post-info__date">{{
+                post.date | date: 'MM.dd.yy, hh:mm'
+            }}</span>
+        </div>
+    </div>
+    <div class="mblog-post__header">
+        <h2 [routerLink]="['/post', post.id]">{{ post.title }}</h2>
+    </div>
+</div>

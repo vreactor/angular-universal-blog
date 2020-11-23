@@ -4,11 +4,11 @@ import { PostService } from 'app/services';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'posts',
-    templateUrl: './posts.component.html',
-    styleUrls: ['./posts.component.less']
+    selector: 'home-layout',
+    templateUrl: './home-layout.component.html',
+    styleUrls: ['./home-layout.component.less']
 })
-export class PostsComponent implements OnInit {
+export class HomeLayoutComponent implements OnInit {
     post$: Observable<IPost[]>;
 
     constructor(private postService: PostService) {}

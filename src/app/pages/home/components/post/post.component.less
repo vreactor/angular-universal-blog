@@ -1,0 +1,39 @@
+.mblog-post {
+    display: grid;
+    border-radius: 5px;
+    background: var(--light-color);
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 0 0 0 1px #08090a1a;
+
+    &__author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__header {
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.mblog-post-info {
+    display: grid;
+
+    &__author {
+        font-size: 14px;
+    }
+
+    &__date {
+        font-size: 13px;
+    }
+}
+
+.mblog-avatar {
+    width: 40px;
+}

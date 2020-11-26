@@ -1,28 +1,41 @@
-<form class="card" [formGroup]="form" (ngSubmit)="login()">
-    <h2>Authorization</h2>
+<form class="mblog-card mblog-login" [formGroup]="form" (ngSubmit)="login()">
+    <h2 class="mblog-card__header">Authorization</h2>
 
-    <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+    <div class="mblog-alert mblog-alert--danger" *ngIf="authService.error$ | async as error">
         {{ error }}
     </div>
 
-    <div class="form-control">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" />
-        <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
-            email
+    <div class="mblog-content-vertical">
+        <div class="mblog-form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" />
+            <div
+                class="mblog-validation"
+                *ngIf="form.get('email').touched && form.get('email').invalid"
+            >
+                email
+            </div>
+        </div>
+
+        <div class="mblog-form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" />
+            <div
+                class="mblog-validation"
+                *ngIf="form.get('password').touched && form.get('password').invalid"
+            >
+                password
+            </div>
         </div>
     </div>
 
-    <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password" />
-        <div
-            class="validation"
-            *ngIf="form.get('password').touched && form.get('password').invalid"
+    <div class="mblog-login__footer">
+        <button
+            type="submit"
+            class="mblog-button mblog-button--block mblog-button--primary"
+            [disabled]="form.invalid"
         >
-            password
-        </div>
+            Login
+        </button>
     </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
 </form>

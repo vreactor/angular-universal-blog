@@ -1,9 +1,7 @@
-<nav class="navbar bg-primary">
-    <h1>
-        <a class="mblog-link" routerLink="/admin">Admin Panel</a>
-    </h1>
+<header class="mblog-header">
+    <a class="mblog-header__logo" routerLink="/admin">Admin Panel</a>
 
-    <ul *ngIf="authService.isAuth()">
+    <ul class="mblog-header__navigation" *ngIf="authService.isAuth()">
         <li routerLinkActive="active">
             <a class="mblog-link" [routerLink]="['/admin', 'dashboard']">Dashboard</a>
         </li>
@@ -17,8 +15,8 @@
             <a class="mblog-link" href="#" (click)="logout($event)">Logout</a>
         </li>
     </ul>
-</nav>
+</header>
 
-<div class="container">
+<div class="mblog-container">
     <router-outlet></router-outlet>
 </div>

@@ -1,31 +1,46 @@
-<form [formGroup]="form" (ngSubmit)="create()">
-    <h2>Post</h2>
+<form class="mblog-card" [formGroup]="form" (ngSubmit)="create()">
+    <h2 class="mblog-card__header">Post</h2>
 
-    <div class="form-control">
-        <label for="title">Title</label>
-        <input type="text" id="title" formControlName="title" />
-        <div class="validation" *ngIf="form.get('title').touched && form.get('title').invalid">
-            title
+    <div class="mblog-content-vertical">
+        <div class="mblog-form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title" />
+            <div
+                class="mblog-validation"
+                *ngIf="form.get('title').touched && form.get('title').invalid"
+            >
+                title
+            </div>
         </div>
-    </div>
 
-    <div class="form-control">
-        <label for="author">Author</label>
-        <input type="text" id="author" formControlName="author" />
-        <div class="validation" *ngIf="form.get('author').touched && form.get('author').invalid">
-            author
+        <div class="mblog-form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" formControlName="author" />
+            <div
+                class="mblog-validation"
+                *ngIf="form.get('author').touched && form.get('author').invalid"
+            >
+                author
+            </div>
         </div>
-    </div>
 
-    <div class="form-control">
-        <label for="text">Text</label>
-        <quill-editor formControlName="text"></quill-editor>
-        <div class="validation" *ngIf="form.get('text').touched && form.get('text').invalid">
-            text
+        <div class="mblog-form-group">
+            <label for="text">Text</label>
+            <quill-editor formControlName="text"></quill-editor>
+            <div
+                class="mblog-validation"
+                *ngIf="form.get('text').touched && form.get('text').invalid"
+            >
+                text
+            </div>
         </div>
-    </div>
 
-    <button type="submit" class="btn btn-block btn-primary" [disabled]="form.invalid">
-        Create
-    </button>
+        <button
+            type="submit"
+            class="mblog-button mblog-button--block mblog-button--primary"
+            [disabled]="form.invalid"
+        >
+            Create
+        </button>
+    </div>
 </form>

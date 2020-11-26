@@ -1,12 +1,24 @@
-.card {
-    display: flex;
-    justify-content: space-between;
-
-    .form-control {
-        flex: 1;
+.mblog-filter {
+    &__header {
+        margin: -10px -20px 0;
+        padding: 0 20px 10px;
+        border-bottom: 1px solid gray;
     }
 
-    .form-control:not(:first-child) {
-        margin-left: 0.8rem;
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+}
+
+.mblog-post-link {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
     }
 }

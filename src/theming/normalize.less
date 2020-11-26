@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #eef0f1;
+    color: var(--dark-color);
+}
+
+label {
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid var(--dark-light-color);
+    border-radius: 5px;
+    outline: none;
+
+    &:focus {
+        background-color: var(--light-color);
+        border-color: var(--primary-color);
+        box-shadow: 1px 1px 0 var(--primary-color);
+    }
+}
+
+input[type='submit'],
+button {
+    font: inherit;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 1rem;
+    text-align: left;
+}

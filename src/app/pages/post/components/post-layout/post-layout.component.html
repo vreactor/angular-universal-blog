@@ -1,4 +1,4 @@
-<article class="mblog-wrapper" *ngIf="post">
+<article class="mblog-wrapper mblog-card" *ngIf="post">
     <div class="mblog-wrapper__header">
         <h1>{{ post.title }}</h1>
     </div>
@@ -13,6 +13,6 @@
     </div>
 
     <div class="mblog-wrapper__article">
-        <quill-view-html [content]="post.text"></quill-view-html>
+        <quill-view-html class="mblog-reader" [content]="post.text"></quill-view-html>
     </div>
 </article>

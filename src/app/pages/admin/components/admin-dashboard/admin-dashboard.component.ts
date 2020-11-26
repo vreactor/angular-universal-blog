@@ -5,7 +5,8 @@ import { PostService } from 'app/services';
 @Component({
     selector: 'app-admin-dashboard',
     templateUrl: './admin-dashboard.component.html',
-    styleUrls: ['./admin-dashboard.component.less']
+    styleUrls: ['./admin-dashboard.component.less'],
+    host: { class: 'mblog-content-vertical' }
 })
 export class AdminDashboardComponent implements OnInit {
     filter: string = undefined;

@@ -1,42 +1,51 @@
-<div class="card">
-    <div class="form-control">
-        <label>Field</label>
-        <select [(ngModel)]="field">
-            <option value="author">author</option>
-            <option value="title">title</option>
-        </select>
+<div class="mblog-card mblog-filter">
+    <div class="mblog-filter__header">
+        <h3>Filter</h3>
     </div>
-    <div class="form-control">
-        <label>Filter</label>
-        <input type="text" [(ngModel)]="filter" [placeholder]="field" />
+
+    <div class="mblog-filter__content">
+        <div class="mblog-form-group">
+            <select [(ngModel)]="field">
+                <option value="author">author</option>
+                <option value="title">title</option>
+            </select>
+        </div>
+        <div class="mblog-form-group">
+            <input type="text" [(ngModel)]="filter" [placeholder]="field" />
+        </div>
     </div>
 </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>author</th>
-            <th>title</th>
-            <th>date</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let post of posts | filterPost: filter:field; let idx = index">
-            <td>{{ idx + 1 }}</td>
-            <td>{{ post.author }}</td>
-            <td>{{ post.title }}</td>
-            <td>{{ post.date | date: 'MM.dd.yy, hh:mm' }}</td>
-            <td>
-                <button class="btn btn-success" [routerLink]="['/admin', 'edit', post.id]">
-                    Open
-                </button>
-                <button class="btn btn-danger" (click)="remove(post.id)">Remove</button>
-            </td>
-        </tr>
-        <tr *ngIf="!posts.length">
-            <td colspan="5">No posts</td>
-        </tr>
-    </tbody>
-</table>
+<div class="mblog-card">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>author</th>
+                <th>title</th>
+                <th>date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts | filterPost: filter:field; let idx = index">
+                <td>{{ idx + 1 }}</td>
+                <td>{{ post.author }}</td>
+                <td>
+                    <a class="mblog-post-link" [routerLink]="['/admin', 'edit', post.id]">{{
+                        post.title
+                    }}</a>
+                </td>
+                <td>{{ post.date | date: 'MM.dd.yy, hh:mm' }}</td>
+                <td>
+                    <button class="mblog-button mblog-button--danger" (click)="remove(post.id)">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!posts.length">
+                <td colspan="5">No posts</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

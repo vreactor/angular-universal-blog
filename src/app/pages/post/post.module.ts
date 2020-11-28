@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MblogSkeletonModule } from 'app/lib/mblog-skeleton';
 import { SharedModule } from 'app/modules/shared';
 import { PostLayoutComponent } from './components';
 
@@ -15,7 +16,8 @@ const COMPONENTS = [PostLayoutComponent];
             }
         ]),
         CommonModule,
-        SharedModule
+        SharedModule,
+        MblogSkeletonModule
     ],
     declarations: [COMPONENTS]
 })

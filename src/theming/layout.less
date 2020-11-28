@@ -1,0 +1,77 @@
+.mblog-header {
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 2rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    background: var(--light-color);
+    box-shadow: 0 1px 1px #0000001a;
+
+    &__logo {
+        background: var(--dark-color);
+        border-radius: 5px;
+        color: var(--light-color);
+        padding: 5px 10px;
+        font-weight: 700;
+    }
+
+    &__navigation {
+        display: flex;
+
+        li.active a {
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: default;
+        }
+
+        a {
+            color: var(--dark-color);
+            padding: 0.45rem;
+            margin: 0 0.25rem;
+
+            &:hover {
+                color: var(--primary-light-color);
+            }
+        }
+    }
+}
+
+.mblog-container {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 15px;
+    flex: 1;
+}
+
+.mblog-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mblog-content-vertical {
+    display: grid;
+    gap: 20px;
+}
+
+.mblog-card {
+    border-radius: 5px;
+    background: var(--light-color);
+    padding: 20px;
+    box-shadow: 0 0 0 1px #08090a1a;
+
+    &__header {
+        margin-bottom: 20px;
+    }
+}
+
+.mblog-footer {
+    padding: 40px;
+    background: #d2d6db;
+    color: #4d5760;
+    text-align: center;
+}

@@ -11,12 +11,16 @@ import { switchMap } from 'rxjs/operators';
 })
 export class PostLayoutComponent implements OnInit {
     post: IPost;
+    inProgress: boolean = true;
 
     constructor(private route: ActivatedRoute, private postService: PostService) {}
 
     ngOnInit() {
         this.route.params
             .pipe(switchMap((params: Params) => this.postService.getPost(params.id)))
-            .subscribe((post: IPost) => (this.post = post));
+            .subscribe((post: IPost) => {
+                this.post = post;
+                this.inProgress = false;
+            });
     }
 }

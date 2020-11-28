@@ -1,0 +1,56 @@
+.mblog-skeleton {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    margin-bottom: 4px;
+
+    &:before {
+        position: absolute;
+        content: '&nbsp;';
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: fade(#dfe2e2, 99%);
+    }
+
+    &__glow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        animation-iteration-count: infinite;
+        background: linear-gradient(
+            to right,
+            fade(#dfe2e2, 99%) 0%,
+            fade(#f5f5f5, 30%) (50% / 2),
+            fade(#dfe2e2, 99%) 50%
+        );
+        animation-duration: 2000ms;
+        animation-timing-function: linear;
+        animation-name: mblog-skeleton-glow;
+    }
+
+    &--fill-horizontal {
+        width: 100%;
+    }
+
+    &--fill-vertical {
+        height: 100%;
+    }
+}
+
+@keyframes mblog-skeleton-glow {
+    0% {
+        transform: translate3d(-(50%), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}

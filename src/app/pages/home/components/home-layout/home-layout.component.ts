@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPost } from 'app/models';
 import { PostService } from 'app/services';
-import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
     selector: 'home-layout',
@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
     styleUrls: ['./home-layout.component.less']
 })
 export class HomeLayoutComponent implements OnInit {
-    post$: Observable<IPost[]>;
+    posts: IPost[];
+    inProgress: boolean = true;
 
     constructor(private postService: PostService) {}
 
     ngOnInit() {
-        this.post$ = this.postService.getAll();
+        this.postService
+            .getAll()
+            .pipe(finalize(() => (this.inProgress = false)))
+            .subscribe(posts => (this.posts = posts));
     }
 }

@@ -10,7 +10,8 @@ import { switchMap } from 'rxjs/operators';
     templateUrl: './admin-edit.component.html'
 })
 export class AdminEditComponent implements OnInit {
-    post: IPost = undefined;
+    post: IPost;
+    inProgress: boolean = true;
     form: FormGroup = new FormGroup({
         title: new FormControl(undefined, Validators.required),
         text: new FormControl(undefined, Validators.required)
@@ -26,6 +27,7 @@ export class AdminEditComponent implements OnInit {
         this.route.params
             .pipe(switchMap((params: Params) => this.postService.getPost(params.id)))
             .subscribe((post: IPost) => {
+                this.inProgress = false;
                 this.post = post;
                 this.form.setValue({
                     title: post.title,

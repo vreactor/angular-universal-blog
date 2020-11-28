@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MblogSkeletonModule } from 'app/lib/mblog-skeleton';
 import { SharedModule } from 'app/modules/shared';
 import { AdminRoutingModule } from './admin.routing';
 import { AdminCreateComponent } from './components/admin-create/admin-create.component';
@@ -22,7 +23,14 @@ const PIPES = [FilterPostPipe];
 const GUARDS = [AuthGuard, LoginGuard];
 
 @NgModule({
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, AdminRoutingModule, SharedModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AdminRoutingModule,
+        SharedModule,
+        MblogSkeletonModule
+    ],
     declarations: [COMPONENTS, PIPES],
     providers: [GUARDS]
 })

@@ -1,18 +1,26 @@
-<article class="mblog-wrapper mblog-card" *ngIf="post">
-    <div class="mblog-wrapper__header">
-        <h1>{{ post.title }}</h1>
+<article class="mblog-wrapper mblog-card">
+    <div class="mblog-wrapper__header" *mblogSkeleton="inProgress; width: 100; height: 35">
+        <h1>{{ post?.title }}</h1>
     </div>
 
     <div class="mblog-wrapper__info">
         <div class="mblog-author-info">
-            <img class="mblog-avatar" src="assets/icons/user.svg" />
-            <span class="mblog-author">{{ post.author }}</span>
+            <img
+                class="mblog-avatar"
+                src="assets/icons/user.svg"
+                *mblogSkeleton="inProgress; width: 25; height: 25"
+            />
+            <span class="mblog-author" *mblogSkeleton="inProgress; width: 100; height: 25">{{
+                post?.author
+            }}</span>
         </div>
 
-        <span class="mblog-date">{{ post.date | date: 'MM.dd.yy, hh:mm' }}</span>
+        <span class="mblog-date" *mblogSkeleton="inProgress; width: 100; height: 25">{{
+            post?.date | date: 'MM.dd.yy, hh:mm'
+        }}</span>
     </div>
 
-    <div class="mblog-wrapper__article">
-        <quill-view-html class="mblog-reader" [content]="post.text"></quill-view-html>
+    <div class="mblog-wrapper__article" *mblogSkeleton="inProgress; height: 256">
+        <quill-view-html class="mblog-reader" [content]="post?.text"></quill-view-html>
     </div>
 </article>

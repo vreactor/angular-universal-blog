@@ -1,0 +1,13 @@
+<span
+    class="mblog-skeleton {{ mClass }}"
+    [class.mblog-skeleton--fill-horizontal]="fillHorizontal"
+    [class.mblog-skeleton--fill-vertical]="fillVertical"
+    [style.height]="height + 'px'"
+    [style.width]="width + 'px'"
+>
+    <ng-content></ng-content>
+
+    <span class="mblog-skeleton__glow" [style.left]="glowLeft" [style.width]="glowWidth"
+        >&nbsp;</span
+    >
+</span>

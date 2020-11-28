@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPost } from 'app/models';
 import { PostService } from 'app/services';
+import { finalize } from 'rxjs/operators';
 
 @Component({
     selector: 'app-admin-dashboard',
@@ -13,13 +14,17 @@ export class AdminDashboardComponent implements OnInit {
     field = 'title';
 
     posts: IPost[] = [];
+    inProgress: boolean = true;
 
     constructor(private postService: PostService) {}
 
     ngOnInit() {
-        this.postService.getAll().subscribe((posts: IPost[]) => {
-            this.posts = posts;
-        });
+        this.postService
+            .getAll()
+            .pipe(finalize(() => (this.inProgress = false)))
+            .subscribe((posts: IPost[]) => {
+                this.posts = posts;
+            });
     }
 
     remove(id: string) {

@@ -1,10 +1,15 @@
 <form class="mblog-card" [formGroup]="form" (ngSubmit)="edit()">
-    <h2 class="mblog-card__header">Post</h2>
+    <h2 class="mblog-card__header">Editing a article</h2>
 
     <div class="mblog-content-vertical">
         <div class="mblog-form-group">
             <label for="title">Title</label>
-            <input type="text" id="title" formControlName="title" />
+            <input
+                type="text"
+                id="title"
+                formControlName="title"
+                *mblogSkeleton="inProgress; height: 35"
+            />
             <div
                 class="mblog-validation"
                 *ngIf="form.get('title').touched && form.get('title').invalid"
@@ -15,7 +20,10 @@
 
         <div class="mblog-form-group">
             <label for="text">Text</label>
-            <quill-editor formControlName="text"></quill-editor>
+            <quill-editor
+                formControlName="text"
+                *mblogSkeleton="inProgress; height: 256"
+            ></quill-editor>
             <div
                 class="mblog-validation"
                 *ngIf="form.get('text').touched && form.get('text').invalid"

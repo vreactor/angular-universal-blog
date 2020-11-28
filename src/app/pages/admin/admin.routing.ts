@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout.com
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AuthGuard, LoginGuard } from './guards';
 
+// FIXME: Need to make lazy modules...
 const ROUTES: Routes = [
     {
         path: '',

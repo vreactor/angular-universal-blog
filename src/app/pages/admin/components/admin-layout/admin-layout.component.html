@@ -1,17 +1,17 @@
 <header class="mblog-header">
     <a class="mblog-header__logo" routerLink="/admin">Admin Panel</a>
 
-    <ul class="mblog-header__navigation" *ngIf="authService.isAuth()">
-        <li routerLinkActive="active">
+    <ul class="mblog-header__navigation">
+        <li routerLinkActive="active" *ngIf="authService.isAuth()">
             <a class="mblog-link" [routerLink]="['/admin', 'dashboard']">Dashboard</a>
         </li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="authService.isAuth()">
             <a class="mblog-link" [routerLink]="['/admin', 'create']">Create</a>
         </li>
         <li>
             <a class="mblog-link" routerLink="" target="_blank">Blog</a>
         </li>
-        <li>
+        <li *ngIf="authService.isAuth()">
             <a class="mblog-link" href="#" (click)="logout($event)">Logout</a>
         </li>
     </ul>

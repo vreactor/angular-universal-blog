@@ -18,15 +18,5 @@
                 "files": ["/assets/**", "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"]
             }
         }
-    ],
-    "dataGroups": [
-        {
-            "name": "firebase-posts",
-            "urls": ["https://angular-blog-bdbda.firebaseio.com"],
-            "cacheConfig": {
-                "maxAge": "3600",
-                "maxSize": 5
-            }
-        }
     ]
 }

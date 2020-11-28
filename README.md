@@ -29,12 +29,11 @@
 - Use the firebase configuration information and plug it in src/environment
 
 ## How to start
-- `npm run start` - for client rendering
-- `npm run ssr` - for server-side rendering
-- `npm run build:universal` - for assembly in release
-- `npm run server` - to start the server
-- `npm run build:prerender` - to generate static by `static.paths.ts`
-- `npm run ssr:watch`
+To start rendering this app with Universal on your local system, use the following command.
+
+```bash
+npm run dev:ssr
+```
 
 ## Demo page
 - <a href="https://angular-universal-blog.herokuapp.com">Blog</a>

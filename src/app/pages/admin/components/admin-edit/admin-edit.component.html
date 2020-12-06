@@ -1,5 +1,8 @@
-<form class="mblog-card" [formGroup]="form" (ngSubmit)="edit()">
-    <h2 class="mblog-card__header">Editing a article</h2>
+<form class="mblog-card" [formGroup]="form">
+    <h2 class="mblog-card__header" [ngSwitch]="!!postId">
+        <ng-container *ngSwitchCase="true">Editing a article</ng-container>
+        <ng-container *ngSwitchDefault>Creating a article</ng-container>
+    </h2>
 
     <div class="mblog-content-vertical">
         <div class="mblog-form-group">
@@ -36,8 +39,11 @@
             type="submit"
             class="mblog-button mblog-button--block mblog-button--primary"
             [disabled]="form.invalid"
+            (click)="handleActionPost()"
+            [ngSwitch]="!!postId"
         >
-            Edit
+            <ng-container *ngSwitchCase="true">Edit</ng-container>
+            <ng-container *ngSwitchDefault>Creat</ng-container>
         </button>
     </div>
 </form>

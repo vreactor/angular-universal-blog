@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPost } from 'app/models';
 import { PostService } from 'app/services';
-import { switchMap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 @Component({
     selector: 'app-admin-edit',
@@ -11,11 +11,15 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AdminEditComponent implements OnInit {
     post: IPost;
-    inProgress: boolean = true;
+    inProgress: boolean;
     form: FormGroup = new FormGroup({
         title: new FormControl(undefined, Validators.required),
         text: new FormControl(undefined, Validators.required)
     });
+
+    get postId(): string {
+        return this.route.snapshot.params.id;
+    }
 
     constructor(
         private postService: PostService,
@@ -24,8 +28,15 @@ export class AdminEditComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.route.params
-            .pipe(switchMap((params: Params) => this.postService.getPost(params.id)))
+        if (!this.postId) {
+            return;
+        }
+
+        this.inProgress = true;
+
+        this.postService
+            .getPost(this.postId)
+            .pipe(finalize(() => (this.inProgress = false)))
             .subscribe((post: IPost) => {
                 this.inProgress = false;
                 this.post = post;
@@ -36,11 +47,19 @@ export class AdminEditComponent implements OnInit {
             });
     }
 
-    edit() {
+    handleActionPost() {
         if (this.form.invalid) {
             return;
         }
 
+        if (this.postId) {
+            this.edit();
+        } else {
+            this.create();
+        }
+    }
+
+    edit() {
         this.postService
             .update({
                 ...this.post,
@@ -50,5 +69,18 @@ export class AdminEditComponent implements OnInit {
             .subscribe(() => {
                 this.router.navigate(['/admin', 'dashboard']);
             });
+    }
+
+    create() {
+        const post: IPost = {
+            title: this.form.value.title,
+            author: this.form.value.author,
+            text: this.form.value.text,
+            date: new Date()
+        };
+
+        this.postService.create(post).subscribe((res: IPost) => {
+            this.router.navigate(['/admin', 'dashboard']);
+        });
     }
 }

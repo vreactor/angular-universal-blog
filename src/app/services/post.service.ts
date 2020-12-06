@@ -11,28 +11,22 @@ export class PostService {
     constructor(private http: HttpClient) {}
 
     create(post: IPost): Observable<IPost> {
-        return this.http.post(`${environment.databaseURL}/posts.json`, post).pipe(
-            map((res: IFbPost) => {
-                const newPost: IPost = {
-                    ...post,
-                    id: res.name
-                };
-
-                return newPost;
-            })
+        return this.http.post(`${environment.databaseURL}/post.json`, post).pipe(
+            map((res: IFbPost) => ({
+                ...post,
+                id: res.name
+            }))
         );
     }
 
     getAll(): Observable<IPost[]> {
         return this.http.get<IPost[]>(`${environment.databaseURL}/posts.json`).pipe(
-            map((res: { [key: string]: any }) => {
-                return Object.keys(res).map(key => {
-                    return {
-                        ...res[key],
-                        id: key
-                    };
-                });
-            })
+            map((res: { [key: string]: any }) =>
+                Object.keys(res).map(key => ({
+                    ...res[key],
+                    id: key
+                }))
+            )
         );
     }
 

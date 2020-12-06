@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MblogSkeletonModule } from 'app/lib/mblog-skeleton';
 import { SharedModule } from 'app/modules/shared';
 import { AdminRoutingModule } from './admin.routing';
-import { AdminCreateComponent } from './components/admin-create/admin-create.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
@@ -15,7 +14,6 @@ import { FilterPostPipe } from './pipes/filter-post.pipe';
 const COMPONENTS = [
     AdminLayoutComponent,
     AdminDashboardComponent,
-    AdminCreateComponent,
     AdminEditComponent,
     AdminLoginComponent
 ];

@@ -17,35 +17,45 @@
 </div>
 
 <div class="mblog-card">
-    <table *mblogSkeleton="inProgress; height: 256">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>author</th>
-                <th>title</th>
-                <th>date</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let post of posts | filterPost: filter:field; let idx = index">
-                <td>{{ idx + 1 }}</td>
-                <td>{{ post.author }}</td>
-                <td>
-                    <a class="mblog-post-link" [routerLink]="['/admin', 'edit', post.id]">{{
-                        post.title
-                    }}</a>
-                </td>
-                <td>{{ post.date | date: 'MM.dd.yy, hh:mm' }}</td>
-                <td>
-                    <button class="mblog-button mblog-button--danger" (click)="remove(post.id)">
-                        Remove
-                    </button>
-                </td>
-            </tr>
-            <tr *ngIf="!posts.length">
-                <td colspan="5">No posts</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="mblog-card__header mblog-card__header--wrapper">
+        <h3>Articles</h3>
+
+        <button class="mblog-button mblog-button--primary" [routerLink]="['/admin', 'create']">
+            Create
+        </button>
+    </div>
+
+    <div class="mblog-table-wrapper" *mblogSkeleton="inProgress; height: 256">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>author</th>
+                    <th>title</th>
+                    <th>date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts | filterPost: filter:field; let idx = index">
+                    <td>{{ idx + 1 }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>
+                        <a class="mblog-post-link" [routerLink]="['/admin', 'edit', post.id]">{{
+                            post.title
+                        }}</a>
+                    </td>
+                    <td>{{ post.date | date: 'MM.dd.yy, hh:mm' }}</td>
+                    <td [style.textAlign]="'right'">
+                        <button class="mblog-button mblog-button--danger" (click)="remove(post.id)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="!posts.length">
+                    <td colspan="5">No posts</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
